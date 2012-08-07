@@ -275,7 +275,7 @@ namespace NHibernate.Spatial.Dialect
 				case SpatialAnalysis.SymDifference:
 				case SpatialAnalysis.Union:
 					if (analysis == SpatialAnalysis.Buffer &&
-						!(extraArgument is Parameter || SqlString.Parameter.Equals(extraArgument)))
+						!(extraArgument is Parameter || new SqlString(Parameter.Placeholder).Equals(extraArgument)))
 					{
 						extraArgument = Convert.ToString(extraArgument, NumberFormatInfo.InvariantInfo);
 					}
